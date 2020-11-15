@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,7 @@
     tools:context=".activities.SummaryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,14 +22,113 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_summary" />
+    <LinearLayout
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/current_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current month"
+                />
+            <Button
+                android:id="@+id/last_30_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last 30 days"
+                />
+            <Button
+                android:id="@+id/custom_interval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Interval"
+                />
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/summary_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="14dp"
+        app:srcCompat="@android:drawable/ic_menu_agenda" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        android:layout_gravity="bottom"
+        android:id="@+id/bottom_navigation_view_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#111"
+            app:bt_colorInactive="#555"
+            app:bt_icon="@drawable/ic_home_black_24dp"
+            app:bt_shape="@drawable/transition_background_drawable"
+            app:bt_title="summary"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#111"
+            app:bt_colorInactive="#555"
+            app:bt_icon="@drawable/ic_home_black_24dp"
+            app:bt_shape="@drawable/transition_background_drawable"
+            app:bt_title="transactions"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_home3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#111"
+            app:bt_colorInactive="#555"
+            app:bt_icon="@drawable/ic_home_black_24dp"
+            app:bt_shape="@drawable/transition_background_drawable"
+            app:bt_title="distribution"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_home4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#111"
+            app:bt_colorInactive="#555"
+            app:bt_icon="@drawable/ic_home_black_24dp"
+            app:bt_shape="@drawable/transition_background_drawable"
+            app:bt_title="time"
+            app:bt_padding="8dp"
+            app:bt_titlePadding="8dp" />
+
+        <!-- Add more child items here - max upto 5 -->
+
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

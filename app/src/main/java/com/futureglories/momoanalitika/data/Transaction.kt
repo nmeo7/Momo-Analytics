@@ -1,11 +1,13 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.data
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
-data class Transaction(
+class Transaction (
     @PrimaryKey val uid: String,
     @ColumnInfo(name = "type") val type: Int,
     @ColumnInfo(name = "tx_id") val tx_id: String?,
@@ -20,4 +22,4 @@ data class Transaction(
     @ColumnInfo(name = "fee_percentage") val fee_percentage: Double?,
     @ColumnInfo(name = "message") val message: String?,
     @ColumnInfo(name = "token") val token: String?
-)
+) : Serializable

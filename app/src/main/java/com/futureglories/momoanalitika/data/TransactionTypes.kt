@@ -1,4 +1,4 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.data
 
 enum class TransactionTypes {
     WITHDRAW,

@@ -1,11 +1,17 @@
 package com.futureglories.momoanalitika.activities
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.futureglories.momoanalitika.R
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +40,33 @@ class LineChartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_line_chart, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Inflate the layout for this fragment
+        var chart = activity?.findViewById<LineChart>(R.id.chart1)!!;
+
+        val values: ArrayList<Entry> = ArrayList()
+
+        for (i in 0 until 10) {
+            val v = (Math.random() * 40).toFloat() - 30
+            values.add(
+                Entry(
+                    i.toFloat() ,
+                    v
+                )
+            )
+        }
+        val set1 : LineDataSet = LineDataSet(values, "DataSet 1")
+
+        val data : LineData = LineData(set1)
+        chart.data = data
+
+        chart.invalidate()
     }
 
     companion object {

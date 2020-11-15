@@ -1,9 +1,11 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.logic
 
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.util.Log
+import com.futureglories.momoanalitika.data.Transaction
+import com.futureglories.momoanalitika.data.TransactionTypes
 import java.math.BigInteger
 import java.nio.charset.Charset
 import java.security.MessageDigest

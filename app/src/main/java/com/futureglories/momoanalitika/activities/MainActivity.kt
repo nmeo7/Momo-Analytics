@@ -1,4 +1,4 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.activities
 
 
 import android.Manifest
@@ -20,6 +20,9 @@ import com.anychart.enums.Anchor
 import com.anychart.enums.MarkerType
 import com.anychart.enums.TooltipPositionMode
 import com.anychart.graphics.vector.Stroke
+import com.futureglories.momoanalitika.R
+import com.futureglories.momoanalitika.data.DataPersistence
+import com.futureglories.momoanalitika.data.Transaction
 import java.util.*
 import java.util.concurrent.Executor
 
@@ -68,17 +71,59 @@ class MainActivity : AppCompatActivity() {
         {
             Log.i("AAAXX", tr.toString())
             ii++
-            seriesData.add(CustomDataEntry( ii.toString(), tr.amount, tr.fee, tr.balance))
+            seriesData.add(
+                CustomDataEntry(
+                    ii.toString(),
+                    tr.amount,
+                    tr.fee,
+                    tr.balance
+                )
+            )
             fee += tr.fee!!
         }
 
         cartesian.title("Total Fee: $fee")
 
-        seriesData.add(CustomDataEntry("1986", 3.6, 2.3, 2.8))
-        seriesData.add(CustomDataEntry("1987", 7.1, 4.0, 4.1))
-        seriesData.add(CustomDataEntry("1988", 8.5, 6.2, 5.1))
-        seriesData.add(CustomDataEntry("1989", 9.2, 11.8, 6.5))
-        seriesData.add(CustomDataEntry("1990", 10.1, 13.0, 12.5))
+        seriesData.add(
+            CustomDataEntry(
+                "1986",
+                3.6,
+                2.3,
+                2.8
+            )
+        )
+        seriesData.add(
+            CustomDataEntry(
+                "1987",
+                7.1,
+                4.0,
+                4.1
+            )
+        )
+        seriesData.add(
+            CustomDataEntry(
+                "1988",
+                8.5,
+                6.2,
+                5.1
+            )
+        )
+        seriesData.add(
+            CustomDataEntry(
+                "1989",
+                9.2,
+                11.8,
+                6.5
+            )
+        )
+        seriesData.add(
+            CustomDataEntry(
+                "1990",
+                10.1,
+                13.0,
+                12.5
+            )
+        )
 
         val set = Set.instantiate()
         set.data(seriesData)
@@ -198,7 +243,10 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        val dataPersistence = DataPersistence(this, Executor {} )
+        val dataPersistence =
+            DataPersistence(
+                this,
+                Executor {})
         // dataPersistence.resetDatabase ()
         // dataPersistence.retrieveAll(1550311629000, 1550512629000)
         // dataPersistence.retrieveAll(0, Long.MAX_VALUE)

@@ -1,8 +1,9 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.data
 
 import android.content.Context
 import android.util.Log
 import androidx.room.Room
+import com.futureglories.momoanalitika.logic.MomoParser
 import java.lang.Exception
 import java.util.concurrent.Executor
 
@@ -24,7 +25,8 @@ class DataPersistence (val context: Context, private val executor: Executor): Ex
     fun resetDatabase ()
     {
         execute {
-            val parser: MomoParser = MomoParser(context)
+            val parser: MomoParser =
+                MomoParser(context)
             val transactions = parser.retrieveNowPlaying()
 
             transactionDao.deleteAll()

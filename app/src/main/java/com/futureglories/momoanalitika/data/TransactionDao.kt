@@ -1,9 +1,10 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.data
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.futureglories.momoanalitika.data.Transaction
 
 @Dao
 interface TransactionDao {

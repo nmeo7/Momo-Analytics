@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.allattentionhere.fabulousfilter.AAH_FilterView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="#ffb772"
+        android:visibility="invisible"
+        tools:ignore="MissingPrefix"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_alignParentEnd="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#00000000"
+            android:padding="8dp"
+            android:drawableEnd="@drawable/ic_arrow_right" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="select activity:"
+                android:padding="8dp"/>
+            <Spinner
+                android:id="@+id/activities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="amount:"
+                android:padding="8dp"/>
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sb_range_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rsb_gravity="center"
+                app:rsb_mode="range"
+                app:rsb_thumb_drawable="@drawable/ic_home_black_24dp"
+                app:rsb_progress_drawable_default="@drawable/ic_home_black_24dp"
+                app:rsb_progress_drawable="@drawable/ic_home_black_24dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fee:"
+                android:padding="8dp"/>
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/sb_range_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rsb_gravity="center"
+                app:rsb_mode="range"
+                app:rsb_thumb_drawable="@drawable/ic_home_black_24dp"
+                app:rsb_progress_drawable_default="@drawable/ic_home_black_24dp"
+                app:rsb_progress_drawable="@drawable/ic_home_black_24dp"
+                />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/goto_settings"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="settings..."
+            android:padding="8dp"/>
+
+
+    </RelativeLayout>
+
+</com.allattentionhere.fabulousfilter.AAH_FilterView>

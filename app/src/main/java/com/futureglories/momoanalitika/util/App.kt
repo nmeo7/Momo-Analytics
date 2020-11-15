@@ -1,4 +1,4 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.util
 
 import android.app.Application
 import java.util.concurrent.ExecutorService

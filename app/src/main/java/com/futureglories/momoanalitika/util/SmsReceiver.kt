@@ -1,4 +1,4 @@
-package com.futureglories.momoanalitika
+package com.futureglories.momoanalitika.util
 
 import android.annotation.TargetApi
 import android.content.BroadcastReceiver
